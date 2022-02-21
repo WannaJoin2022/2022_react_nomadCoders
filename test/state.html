@@ -9,13 +9,14 @@
   <script type="text/babel">
 
   const root = document.getElementById("root");
-  let counter =0;
+  const counter = 0;
   
   function App (){
     const [counter, setCounter] = React.useState(0);
    
     const onClick = () => {
-      setCounter(counter + 1) 
+      // setCounter(counter + 1) 
+      setCounter((counter)=> counter + 1); 
     }
 
     return (
@@ -27,7 +28,7 @@
     )
    }
 
-   ReactDOM.render(<App/>, root);
+  ReactDOM.render(<App/>, root);
 
   </script>
 </html>
