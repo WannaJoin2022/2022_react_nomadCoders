@@ -1,29 +1,26 @@
-import styles from "./App.module.css"
-import {useState, useEffect} from "react";
-
-
-function Hello() {
-  function hiFn() {
-    console.log("hi :)")
-    return ByeFn;
-  }
-  function ByeFn() {
-    console.log("bye :(")
-  }
-
-  useEffect(hiFn, [])
-  return <h1>Hello</h1>;
-}
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 
 function App() {
-  const [showing, setShowing] = useState(false);;
-  const onClick = () => setShowing((prev)=> !prev);
-  return (
-    <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "show"}</button>
-    </div>
-  );
-}
+  return(
+  <Router>
+  <Switch>
 
+    <Route path="/hello">
+      <h1>Hello</h1>
+    </Route>
+
+    <Route path="/movie">
+      <Detail />
+    </Route>
+
+    <Route path="/">
+      <Home />
+    </Route>
+
+  </Switch>
+</Router>
+);
+}
 export default App;
